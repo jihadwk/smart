@@ -15,8 +15,8 @@ import com.smart.mvc.enums.TrueFalseEnum;
 import com.smart.mvc.model.Pagination;
 import com.smart.mvc.model.Result;
 import com.smart.mvc.model.ResultCode;
+import com.smart.mvc.provider.PasswordProvider;
 import com.smart.mvc.service.mybatis.impl.ServiceImpl;
-import com.smart.sso.server.common.Permissible;
 import com.smart.sso.server.dao.UserDao;
 import com.smart.sso.server.model.User;
 import com.smart.sso.server.service.AppService;
@@ -70,12 +70,10 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User, Integer> impleme
 		return result;
 	}
 
-	@Permissible
 	public void enable(Boolean isEnable, List<Integer> idList) {
 		verifyRows(dao.enable(isEnable, idList), idList.size(), "管理员数据库更新失败");
 	}
 	
-	@Permissible
 	public void save(User t) {
 		super.save(t);
 	}
@@ -93,11 +91,17 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User, Integer> impleme
 		return dao.findByAccount(account);
 	}
 	
-	@Permissible
 	@Transactional
 	public void deleteById(List<Integer> idList) {
 		userAppService.deleteByUserIds(idList);
 		userRoleService.deleteByUserIds(idList, null);
 		verifyRows(dao.deleteById(idList), idList.size(), "管理员数据库删除失败");
+	}
+
+	@Override
+	public void updatePassword(Integer id, String newPassword) {
+		User user = get(id);
+		user.setPassword(PasswordProvider.encrypt(newPassword));
+		update(user);
 	}
 }

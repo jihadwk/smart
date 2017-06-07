@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.smart</groupId>
 		<artifactId>smart</artifactId>
-		<version>0.0.1</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>smart-sso</artifactId>
 	<packaging>pom</packaging>
@@ -21,8 +21,8 @@
 	</properties>
 
 	<modules>
-		<module>smart-sso-rpc</module>
 		<module>smart-sso-client</module>
+		<module>smart-sso-demo</module>
 		<module>smart-sso-server</module>
 	</modules>
 </project>

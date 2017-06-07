@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.smart</groupId>
 		<artifactId>smart</artifactId>
-		<version>0.0.1</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>smart-static</artifactId>
 	<packaging>war</packaging>
@@ -16,11 +16,11 @@
 	</properties>
 
 	<dependencies>
-		<!-- mvc-core包支持 -->
+		<!-- J2EE支持 -->
 		<dependency>
-			<groupId>com.smart</groupId>
-			<artifactId>smart-mvc-core</artifactId>
-			<version>${project.parent.version}</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

@@ -89,6 +89,7 @@
 				<!-- #section:basics/navbar.dropdown -->
 				<div class="navbar-buttons navbar-header pull-right" role="navigation">
 					<ul class="nav ace-nav">
+						<!-- 
 						<li class="grey">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-tasks"></i>
@@ -343,6 +344,7 @@
 								</li>
 							</ul>
 						</li>
+						 -->
 
 						<!-- #section:basics/navbar.user_menu -->
 						<li class="light-blue">
@@ -350,7 +352,7 @@
 								<img class="nav-user-photo" src="${_staticPath}/assets/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>欢迎光临,</small>
-									${_sessionAccount}
+									${userName}
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -624,8 +626,6 @@
 		<script id="_ajaxContent" src="${_staticPath}/custom/assets/ace.ajax-content.js?v" data-path="${_path}"></script>
 		<!-- 权限处理 -->
 		<script id="_permission" src="${_staticPath}/custom/jquery.permission.min.js?v" data="${sessionUserNoPermissions}"></script>
-		<!-- 金额格式化处理 -->
-		<script src="${_staticPath}/custom/jquery.decimalFormat.js?v"></script>
 		<script src="${_staticPath}/assets/js/ace/ace.touch-drag.js"></script>
 		<script src="${_staticPath}/assets/js/ace/ace.sidebar.js"></script>
 		<script src="${_staticPath}/assets/js/ace/ace.sidebar-scroll-1.js"></script>
@@ -642,7 +642,7 @@
 					window.location.href="${_path}/logout";
 	            });
 			
-				$.getJSON("${_path}/admin/admin/menu",function(d) {
+				$.getJSON("${_path}/admin/admin/menu?v=" + Math.random(), function(d) {
    					$('.nav-list').append(tree(d.data));
 				});
 				

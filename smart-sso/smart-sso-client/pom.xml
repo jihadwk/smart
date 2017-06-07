@@ -5,37 +5,24 @@
 	<parent>
 		<groupId>com.smart</groupId>
 		<artifactId>smart-sso</artifactId>
-		<version>0.0.1</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>smart-sso-client</artifactId>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>
-	
+
 	<dependencies>
-		<!-- J2EE支持-->
+		<!-- J2EE支持 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		
-		<!-- mvc-core项目支持 -->
+		<!-- 基础项目支持 -->
 		<dependency>
 			<groupId>com.smart</groupId>
-			<artifactId>smart-mvc-core</artifactId>
-			<version>${project.parent.version}</version>
-		</dependency>
-		
-		<!-- Json处理 -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-		</dependency>
-		
-		<!-- sso-rpc支持 -->
-		<dependency>
-			<groupId>com.smart</groupId>
-			<artifactId>smart-sso-rpc</artifactId>
+			<artifactId>smart-mvc</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 	</dependencies>
